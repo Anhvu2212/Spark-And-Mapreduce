@@ -23,25 +23,34 @@ Sự đơn giản: Một trong những chỉ trích thường gặp ở Hadoop �
 TỒNG QUAN VỀ "MAPREDUCE"
 
 1.Map reduce là gì?
-    Mapreduce có thể hiểu là 1 phương thức thực thi để giúp các ứng dụng có thể xử lý nhanh 1 lượng dữ liệu lớn. Các dữ liệu này được đặt tại các máy tính phân tán.Các máy tính này sẽ hoạt động song song độc lập với nhau.Điều này làm rút ngẵn thời gian xử lý toàn bộ dữ liệu
-    Một đặc điểm đáng chú ý của Mapreduce là dữ liệu đầu vào có thể là dữ liệu có cấu trúc ( dữ liệu lưu trữ dạng bảng quan hệ 2 chiều ) hoặc dữ liệu không cấu trúc ( dữ liệu dạng tập tin hệ thống )
-    Các máy tính lưu trữ các dữ liệu phân tán trong quá trình thực thi được gọi là các nút (nodes) của hệ thống.Nếu các máy tính này cùng sử dụng chung trên 1 phần cứng thì chúng được gọi là 1 cụm ( Cluster ).Nếu các máy này hoatj động riêng rẽ trên các phần cứng khác nhau thì chúng được gọi là 1 lưới (Grid)
+Mapreduce có thể hiểu là 1 phương thức thực thi để giúp các ứng dụng có thể xử lý nhanh 1 lượng dữ liệu lớn. Các dữ liệu này được đặt tại các máy tính phân tán.Các máy tính này sẽ hoạt động song song độc lập với nhau.Điều này làm rút ngẵn thời gian xử lý toàn bộ dữ liệu
+
+Một đặc điểm đáng chú ý của Mapreduce là dữ liệu đầu vào có thể là dữ liệu có cấu trúc ( dữ liệu lưu trữ dạng bảng quan hệ 2 chiều ) hoặc dữ liệu không cấu trúc ( dữ liệu dạng tập tin hệ thống )
+
+Các máy tính lưu trữ các dữ liệu phân tán trong quá trình thực thi được gọi là các nút (nodes) của hệ thống.Nếu các máy tính này cùng sử dụng chung trên 1 phần cứng thì chúng được gọi là 1 cụm ( Cluster ).Nếu các máy này hoatj động riêng rẽ trên các phần cứng khác nhau thì chúng được gọi là 1 lưới (Grid)
+
 2.Ưu điểm của mapreduce
-    Xử lý tốt bài toán về lượng dữ liệu lớn có các tác vụ phân tích và tính toán phức tạn không lướng trước được
-    Có thể tiến hành chạy song song trên các máy phân tán 1 cahs chính xác và hiệu quả.Không phải quan tâm đến sự trao đổi dữ liệu giữa các clusters với nhau vì chúng hoạt động 1 cách đọc lập, không phải theo dõi xử lý các tác vụ,xủa lý lỗi.
-    Có thể thực hiên mô hình Mapreduce trên nhiều ngôn ngữ (Java,C++,Python,Perl,Ruby,C) với các thư viện tương ứng
+Xử lý tốt bài toán về lượng dữ liệu lớn có các tác vụ phân tích và tính toán phức tạn không lướng trước được
+
+Có thể tiến hành chạy song song trên các máy phân tán 1 cahs chính xác và hiệu quả.Không phải quan tâm đến sự trao đổi dữ liệu giữa các clusters với nhau vì chúng hoạt động 1 cách đọc lập, không phải theo dõi xử lý các tác vụ,xủa lý lỗi.
+
+Có thể thực hiên mô hình Mapreduce trên nhiều ngôn ngữ (Java,C++,Python,Perl,Ruby,C) với các thư viện tương ứng
+
 3.Nguyên tắc hoạt động của Mapreduce
-    Mapreduce hoạt dộng gồm 2 quá trình thực hiện 2 hàm "Map" và "Reduce"
-    Ý tưởng chính của Mapreduce chính là thực hiện việc "Chia để trị"
-        -Chia vấn đề cần xử lý (dữ liệu ) thành các phàn nhỏ để xử lý
-        -Xử lý các vấn đề nhỏ đó 1 cách song song trên các máy tính phân tán hoạt động đọc lập
-        -Tông hợp các kết quả thu được để đưa ra kết quả cuối cùng
-    Như vậy toàn bộ quá trình mapreduce có thể hiểu như sau
-        -Đọc dữ liệu đầu vào
-        -Thực hiên xử lý các phần dữ liệu vào (xử lý từng phấn một ) (Thực hiện hàm Map)
-        -Trộn và sắp xếp các kết quả thu được từ các máy tính làm sao để được kết quả tiện lợi nhất so với mục đích của quá trình
-        -Tổng hợp các kết quả trung gian thu được từ các máy tính phân tán (Thực hiện hàm reduce)
-        -Đưa ra kết quả cuối cùng
+Mapreduce hoạt dộng gồm 2 quá trình thực hiện 2 hàm "Map" và "Reduce"
+
+Ý tưởng chính của Mapreduce chính là thực hiện việc "Chia để trị"
+  -Chia vấn đề cần xử lý (dữ liệu ) thành các phàn nhỏ để xử lý
+  -Xử lý các vấn đề nhỏ đó 1 cách song song trên các máy tính phân tán hoạt động đọc lập
+  -Tông hợp các kết quả thu được để đưa ra kết quả cuối cùng
+  
+Như vậy toàn bộ quá trình mapreduce có thể hiểu như sau
+  -Đọc dữ liệu đầu vào
+  -Thực hiên xử lý các phần dữ liệu vào (xử lý từng phấn một ) (Thực hiện hàm Map)
+  -Trộn và sắp xếp các kết quả thu được từ các máy tính làm sao để được kết quả tiện lợi nhất so với mục đích của quá trình
+  -Tổng hợp các kết quả trung gian thu được từ các máy tính phân tán (Thực hiện hàm reduce)
+   -Đưa ra kết quả cuối cùng
+   
 Sơ đồ hoạt đọng của quá trình Mapreduce:
 
 ![SPARK](https://blog.itnavi.com.vn/wp-content/uploads/2020/06/Mapreduce-l%C3%A0-g%C3%AC-4.jpg)

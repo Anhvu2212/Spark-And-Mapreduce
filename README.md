@@ -11,5 +11,6 @@ Khi ta có một tác vụ nào đó qúa lớn mà không thể xử lý trên 
 
 Spark nhận được nhiều sự hưởng ứng từ cộng đồng Big data trên thế giới do cung cấp khả năng tính toán nhanh và nhiều thư viện đi kèm hữu ích như Spark SQL (với kiểu dữ liệu DataFrames), Spark Streaming, MLlib (machine learning: classification, regression, clustering, collaborative filtering, và dimensionality reduction) và GraphX (biểu diễn đồ thị nhờ kết qủa tính toán song song).
 
- ![SPARK](https://www.mastercode.vn/Upload/Blog/a-unified-plaform-for-big-data.png)
+![SPARK](https://scontent.fsgn5-4.fna.fbcdn.net/v/t1.0-9/92214447_2562652790634293_8507872163703816192_n.jpg?_nc_cat=102&ccb=2&_nc_sid=32a93c&_nc_ohc=AKgy3-yiYXoAX8JWKGY&_nc_ht=scontent.fsgn5-4.fna&oh=75c81ee202517f59cb6513bb652d9f55&oe=60334B74)
+
 

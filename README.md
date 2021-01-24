@@ -54,3 +54,14 @@ Như vậy toàn bộ quá trình mapreduce có thể hiểu như sau
 Sơ đồ hoạt đọng của quá trình Mapreduce:
 
 ![SPARK](https://blog.itnavi.com.vn/wp-content/uploads/2020/06/Mapreduce-l%C3%A0-g%C3%AC-4.jpg)
+
+4.Chi tiết 2 hàm Map và Reduce
+Thay vì định nghĩa dữ liệu dưới dạng bảng giá trị có quan hệ ,Mapreduce thực hiện định nghĩa dữ liệu dưới dạng các cặp gồm <key,value>
+
+Đối với 1 tệp tin "key" có thể là tên của tệp tin đó còn "value" có thể là nội dung của tệp.Một ví dụ khác "key" là địa chỉ 1 trang web còn value là số lần người dùng truy cập trang web đó.Hai hàm Map và Reduce tập trung xử lý dữ liệu dưới dạng các cặp <key,value> như trên
+
+Hàm Map: Dữ liệu được đưa vào hàm map là các dữ liệu đã được phần nhỏ thành các phần.Đầu vào của hàm Map là các cặp <k1,v1>.Sau khi xử lý toàn bộ dữ liệu đầu vào (gồm nhiều phần sau khi được phân nhỏ) kết quả thu đươc là tập hợp gồm các cặp <k2,v2>.Các dữ liệu này được gọi là các dữ liệu trung gian
+
+Các dữ liệu trung gian này có thể được ghép lại với nhau theo danh sách cá khóa để thuận tiên cho quá trình reduce sau này
+
+Hàm Reduce:Từ dữ liệu đầu ra của hàm map (gồm danh sách các cặp <k2,v2>) của cá máy tính phân tán,hàm reduce thực hiện việc tống hợp các giá trị này lại.Kết quả đầu ra là các cặp <k3,v3> đã được xử lý
